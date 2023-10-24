@@ -1,0 +1,36 @@
+version: '3.7'
+
+services:
+    backend:
+        build: ./backend
+        container_name: backend-layer
+        networks:
+            - my-network
+        depends_on:
+            - database
+        env_file: .env
+
+    database:
+        build: ./database
+        container_name: database-layer
+        networks:
+            - my-network
+        volumes:
+            - db-persitence:/var/lib/postgresql/data
+        env_file: .env
+
+    httpd:
+        build: ./http
+        container_name: frontend-layer
+        ports:
+            - "80:80"
+        networks:
+            - my-network
+        depends_on:
+            - backend
+
+networks:
+    my-network: {}
+
+volumes:
+    db-persitence: {}

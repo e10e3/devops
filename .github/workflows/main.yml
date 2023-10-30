@@ -26,3 +26,33 @@ jobs:
      # finally build your app with the latest command (not forgetting the tests)
       - name: Build and test with Maven
         run: mvn -B clean verify --file backend/pom.xml
+
+  # define job to build and publish docker image
+  build-and-push-docker-image:
+    # run only when code is compiling and tests are passing
+    needs: test-backend
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build image backend
+        uses: docker/build-push-action@v5
+        with:
+          # relative path to the place where source code with Dockerfile is located
+          context: ./backend
+          # Note: tags has to be all lower-case
+          tags:  ${{secrets.DOCKER_HUB_USERNAME}}/ops-backend
+
+      - name: Build image database
+        uses: docker/build-push-action@v5
+        with:
+          context: ./database
+          tags:  ${{secrets.DOCKER_HUB_USERNAME}}/ops-database
+
+      - name: Build image frontend
+        uses: docker/build-push-action@v5
+        with:
+          context: ./http
+          tags:  ${{secrets.DOCKER_HUB_USERNAME}}/ops-frontend

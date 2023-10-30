@@ -1,0 +1,32 @@
+---
+# A reusable workflow that runs the back-end's tests
+name: Run back-end tests
+on:
+  workflow_call:
+    secrets:
+      sonar_token:
+        required: true
+
+jobs:
+  # The main point of the workflow
+  test-backend:
+    name: Run the back-end tests
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checout the code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'maven'
+
+      - name: Build and test with Maven
+        run: |
+            mvn -B clean verify --file backend/pom.xml
+
+      - name: Inspect with SonarCloud
+        run: |
+          mvn -B sonar:sonar --file backend/pom.xml -Dsonar.token=${{secrets.sonar_token }}

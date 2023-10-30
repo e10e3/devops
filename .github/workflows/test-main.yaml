@@ -1,0 +1,15 @@
+---
+name: Execute the tests on pushes
+on:
+  # To begin you want to launch this job in main and develop
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+
+jobs:
+  # Call the reusable back-end test workflow
+  call-backend-test:
+    uses: ./.github/workflows/run-backend-tests.yaml
+    secrets: inherit

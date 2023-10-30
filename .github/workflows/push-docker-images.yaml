@@ -1,0 +1,62 @@
+---
+name: Push images
+on:
+  # Runs for all pushes to main or version tags
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'
+
+jobs:
+  # Run the tests
+  call-backend-tests:
+    uses: ./.github/workflows/run-backend-tests.yaml
+    secrets: inherit
+
+  # And then push the images
+  build-and-push-docker-image:
+    name: Push the images to Docker Hub
+    needs: call-backend-tests
+    runs-on: ubuntu-22.04
+    # Credits to
+    # https://blog.julianbeck.com/posts/build-multiple-docker-images-using-github-action-and-matrix-builds/
+    strategy:
+      matrix:
+        include:
+          - image: e10e3/ops-database
+            dockerfile: ./database
+          - image: e10e3/ops-backend
+            dockerfile: ./backend
+          - image: e10e3/ops-frontend
+            dockerfile: ./http
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Extract metadata for Docker
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ matrix.image }}
+          tags: |
+            type=ref,event=branch
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=raw,value=latest,enable={{is_default_branch}}
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+
+      - name: Build and push image backend
+        uses: docker/build-push-action@v5
+        with:
+          # Link the dockerfile
+          context: ${{ matrix.dockerfile }}
+          tags: ${{ steps.meta.outputs.tags }}
+          # Always push since it runs un the main branch
+          push: true

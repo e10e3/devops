@@ -25,7 +25,10 @@ jobs:
 
      # finally build your app with the latest command (not forgetting the tests)
       - name: Build and test with Maven
-        run: mvn -B clean verify --file backend/pom.xml
+        run: |
+            mvn -B clean verify sonar:sonar \
+            --file backend/pom.xml \
+            -Dsonar.token=${{ secrets.SONAR_TOKEN }}
 
   # define job to build and publish docker image
   build-and-push-docker-image:

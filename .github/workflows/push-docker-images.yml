@@ -1,39 +1,18 @@
-name: CI devops 2023
+name: Push images
 on:
-  #to begin you want to launch this job in main and develop
-  push:
+  #Runs when 'Run tests' succeeds and runs on main
+  workflow_run:
+    workflows:
+      - Run tests
+    types:
+      - completed
     branches:
       - main
-      - develop
-  pull_request:
 
 jobs:
-  # a job to run the back-end's tests
-  test-backend: 
-    runs-on: ubuntu-22.04
-    steps:
-     # checkout your github code using actions/checkout@v2.5.0 (upgraded to v4)
-      - uses: actions/checkout@v4
-
-     # do the same with another action (actions/setup-java@v3) that enable to setup jdk 17
-      - name: Set up JDK 17
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-          cache: 'maven'
-
-     # finally build your app with the latest command (not forgetting the tests)
-      - name: Build and test with Maven
-        run: |
-            mvn -B clean verify sonar:sonar \
-            --file backend/pom.xml \
-            -Dsonar.token=${{ secrets.SONAR_TOKEN }}
-
   # define job to build and publish docker image
   build-and-push-docker-image:
-    # run only when code is compiling and tests are passing
-    needs: test-backend
+    name: Push the images to Docker Hub
     runs-on: ubuntu-22.04
 
     steps:

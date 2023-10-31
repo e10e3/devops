@@ -27,4 +27,11 @@ public class DepartmentService {
     public List<Department> getDepartments() {
         return this.departmentDAO.findAll();
     }
+
+    public Department getDepartmentById(Long id) {
+        if (id == null || id < 0) {
+            throw new IllegalArgumentException("The department id must not be null or negative.");
+        }
+        return this.departmentDAO.findById(id).orElseThrow();
+    }
 }

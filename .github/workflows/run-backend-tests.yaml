@@ -24,9 +24,10 @@ jobs:
           cache: 'maven'
 
       - name: Build and test with Maven
+        # Generate a test coverage report at the same time
         run: |
-            mvn -B clean verify --file backend/pom.xml
+            mvn -B clean verify jacoco:report --file backend/pom.xml
 
       - name: Inspect with SonarCloud
         run: |
-          mvn -B sonar:sonar --file backend/pom.xml -Dsonar.token=${{secrets.sonar_token }}
+          mvn -B sonar:sonar -Pcoverage --file backend/pom.xml -Dsonar.token=${{secrets.sonar_token }}

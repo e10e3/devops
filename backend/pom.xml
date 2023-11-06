@@ -102,6 +102,7 @@
 				</configuration>
 				<executions>
 					<execution>
+						<id>prepare-agent</id>
 						<goals>
 							<goal>prepare-agent</goal>
 						</goals>
@@ -112,6 +113,11 @@
 						<goals>
 							<goal>report</goal>
 						</goals>
+						<configuration>
+							<formats>
+								<format>XML</format>
+							</formats>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>

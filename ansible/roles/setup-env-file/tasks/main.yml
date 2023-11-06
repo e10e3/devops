@@ -1,0 +1,5 @@
+---
+- name: Copy .env file
+  copy:
+    src: ../.env
+    dest: /root/ansible-env

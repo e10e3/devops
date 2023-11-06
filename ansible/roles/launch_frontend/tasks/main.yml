@@ -1,0 +1,7 @@
+---
+- name: Create the front-end container
+  community.docker.docker_container:
+    name: "{{ frontend.container_name }}"
+    image: e10e3/ops-frontend
+    networks:
+      - name: app_network

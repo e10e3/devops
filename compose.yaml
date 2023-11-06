@@ -3,7 +3,7 @@ version: '3.7'
 services:
     backend:
         build: ./backend
-        container_name: backend-layer
+        container_name: ${BACKEND_CONTAINER_NAME}
         networks:
             - my-network
         depends_on:
@@ -12,7 +12,7 @@ services:
 
     database:
         build: ./database
-        container_name: database-layer
+        container_name: ${DATABASE_CONTAINER_NAME}
         networks:
             - my-network
         volumes:
@@ -21,13 +21,14 @@ services:
 
     httpd:
         build: ./http
-        container_name: frontend-layer
+        container_name: ${PROXY_CONTAINER_NAME}
         ports:
             - "80:80"
         networks:
             - my-network
         depends_on:
             - backend
+        env_file: .env
 
 networks:
     my-network: {}

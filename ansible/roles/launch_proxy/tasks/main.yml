@@ -1,9 +1,12 @@
 ---
 - name: Create the proxy container
   community.docker.docker_container:
-    name: frontend-layer
-    image: e10e3/ops-frontend
+    name: "{{ proxy.container_name }}"
+    image: e10e3/ops-proxy
     networks:
       - name: app_network
     ports:
       - "80:80"
+    env:
+      BACKEND_CONTAINER_NAME: "{{ backend.container_name }}"
+      FRONTEND_CONTAINER_NAME: "{{ frontend.container_name }}"

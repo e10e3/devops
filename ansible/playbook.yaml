@@ -2,6 +2,8 @@
 - hosts: all
   gather_facts: false
   become: true
+  vars_files:
+    - env.yaml
 
   tasks:
     - name: Test connection

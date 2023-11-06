@@ -29,6 +29,8 @@ jobs:
           - image: e10e3/ops-backend
             dockerfile: ./backend
           - image: e10e3/ops-frontend
+            dockerfile: ./frontend
+          - image: e10e3/ops-proxy
             dockerfile: ./http
 
     steps:

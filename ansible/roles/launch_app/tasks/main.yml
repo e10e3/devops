@@ -9,3 +9,4 @@
       POSTGRES_DB: "{{ database.postgres_name }}"
       POSTGRES_USER: "{{ database.postgres_username }}"
       POSTGRES_PASSWORD: "{{ database.postgres_password }}"
+      DATABASE_CONTAINER_NAME: "{{ database.container_name }}"

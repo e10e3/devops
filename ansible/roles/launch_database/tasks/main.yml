@@ -1,0 +1,10 @@
+---
+- name: Create the database container
+  community.docker.docker_container:
+    name: database-layer
+    image: e10e3/ops-database
+    volumes:
+      - db_storage:/var/lib/postgresql/data
+    networks:
+      - name: app_network
+    env_file: /root/ansible-env

@@ -1,0 +1,8 @@
+---
+- name: Create the back-end container
+  community.docker.docker_container:
+    name: backend-layer
+    image: e10e3/ops-backend
+    networks:
+      - name: app_network
+    env_file: /root/ansible-env

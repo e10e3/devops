@@ -1,0 +1,9 @@
+---
+- name: Create the proxy container
+  community.docker.docker_container:
+    name: frontend-layer
+    image: e10e3/ops-frontend
+    networks:
+      - name: app_network
+    ports:
+      - "80:80"

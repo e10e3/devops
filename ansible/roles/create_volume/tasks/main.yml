@@ -1,0 +1,4 @@
+---
+- name: Create a volume
+  community.docker.docker_volume:
+    name: db_storage

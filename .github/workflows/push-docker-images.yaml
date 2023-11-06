@@ -62,3 +62,5 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           # Always push since it runs un the main branch
           push: true
+          build-args: |
+            API_URL=${{ vars.TARGET_HOSTNAME }}

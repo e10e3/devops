@@ -11,6 +11,9 @@ COPY public/ public/
 COPY default.conf .
 COPY .env.production .
 
+ARG API_URL
+ENV VUE_APP_API_URL ${API_URL}
+
 RUN npm run build
 
 FROM nginx:1.15.7-alpine

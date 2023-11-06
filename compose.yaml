@@ -20,7 +20,10 @@ services:
         env_file: .env
 
     frontend:
-        build: ./frontend
+        build:
+          context: ./frontend
+          args:
+            - API_URL=localhost/api
         container_name: ${FRONTEND_CONTAINER_NAME}
         networks:
             - my-network

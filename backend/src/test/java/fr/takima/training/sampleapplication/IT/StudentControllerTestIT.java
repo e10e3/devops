@@ -22,6 +22,14 @@ class StudentControllerTestIT {
 
     @Test
     @Sql({ "/InsertData.sql" })
+    void testGetAllStudents() throws Exception {
+        mockMvc.perform(get("/students/"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.length()", equalTo(411)));
+    }
+
+    @Test
+    @Sql({ "/InsertData.sql" })
     void testGetStudentById() throws Exception {
         mockMvc.perform(get("/students/6"))
                 .andExpect(status().isOk())
@@ -116,12 +124,42 @@ class StudentControllerTestIT {
 
     @Test
     @Sql({ "/InsertData.sql" })
+    void testUpdateNonExistingStudent() throws Exception {
+        mockMvc.perform(get("/students/666"))
+                .andExpect(status().isNotFound());
+
+        String body = """
+                {
+                    "firstname": "DoesNot",
+                    "lastname": "Exist",
+                    "departmentId": 1
+                }
+                """;
+
+        mockMvc.perform(put("/students/666")
+                .content(body)
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    @Sql({ "/InsertData.sql" })
     void testDeleteStudent() throws Exception {
         mockMvc.perform(get("/students/1"))
                 .andExpect(jsonPath("id", equalTo(1)));
         mockMvc.perform(delete("/students/1"))
                 .andExpect(status().isOk());
         mockMvc.perform(get("/students/1"))
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    @Sql({ "/InsertData.sql" })
+    void testDeleteNonExistingStudent() throws Exception {
+        mockMvc.perform(get("/students/666"))
+                .andExpect(status().isNotFound());
+
+        mockMvc.perform(delete("/students/666"))
                 .andExpect(status().isNotFound());
     }
 }

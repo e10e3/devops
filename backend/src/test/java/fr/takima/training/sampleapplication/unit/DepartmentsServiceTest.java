@@ -13,6 +13,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
+import java.util.NoSuchElementException;
+import java.util.Optional;
+
 @ExtendWith(MockitoExtension.class)
 class DepartmentsServiceTest {
 
@@ -41,5 +44,27 @@ class DepartmentsServiceTest {
     @Test
     void testGetDepartmentByNameWithEmptyValue() {
         assertThrows(IllegalArgumentException.class, () -> departmentService.getDepartmentByName(""));
+    }
+
+    @Test
+    void testGetDepartmentById() {
+        when(departmentDAO.findById(1L)).thenReturn(Optional.of(DEPARTMENT));
+        assertEquals(DEPARTMENT, departmentService.getDepartmentById(1L));
+    }
+
+    @Test
+    void testGetDepartmentByUnknownId() {
+        when(departmentDAO.findById(100L)).thenReturn(Optional.empty());
+        assertThrows(NoSuchElementException.class, () -> departmentService.getDepartmentById(100L));
+    }
+
+    @Test
+    void testGetDepartmentByIdWithNullValue() {
+        assertThrows(IllegalArgumentException.class, () -> departmentService.getDepartmentById(null));
+    }
+
+    @Test
+    void testGetDepartmentByIdWithNegativeValue() {
+        assertThrows(IllegalArgumentException.class, () -> departmentService.getDepartmentById(-1L));
     }
 }

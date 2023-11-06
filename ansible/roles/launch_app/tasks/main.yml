@@ -1,8 +1,11 @@
 ---
 - name: Create the back-end container
   community.docker.docker_container:
-    name: backend-layer
+    name: "{{ backend.container_name }}"
     image: e10e3/ops-backend
     networks:
       - name: app_network
-    env_file: /root/ansible-env
+    env:
+      POSTGRES_DB: "{{ database.postgres_name }}"
+      POSTGRES_USER: "{{ database.postgres_username }}"
+      POSTGRES_PASSWORD: "{{ database.postgres_password }}"

@@ -13,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
@@ -33,7 +34,7 @@ class DepartmentsServiceTest {
     @Test
     void testGetDepartmentByName() {
         when(departmentDAO.findDepartmentByName("DepartmentTest")).thenReturn(DEPARTMENT);
-        assertEquals(DEPARTMENT, departmentDAO.findDepartmentByName("DepartmentTest"));
+        assertEquals(DEPARTMENT, departmentService.getDepartmentByName("DepartmentTest"));
     }
 
     @Test
@@ -66,5 +67,12 @@ class DepartmentsServiceTest {
     @Test
     void testGetDepartmentByIdWithNegativeValue() {
         assertThrows(IllegalArgumentException.class, () -> departmentService.getDepartmentById(-1L));
+    }
+
+    @Test
+    void testGetAllDepartments() {
+        when(departmentDAO.findAll()).thenReturn(List.of(DEPARTMENT));
+        assertEquals(1, departmentService.getDepartments().size());
+        assertEquals(DEPARTMENT, departmentService.getDepartments().get(0));
     }
 }

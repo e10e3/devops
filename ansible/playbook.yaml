@@ -15,4 +15,5 @@
     - create_volume
     - launch_database
     - launch_app
+    - launch_frontend
     - launch_proxy

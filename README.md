@@ -2,6 +2,10 @@
 
 [Docker](https://www.docker.com/). Everything Docker.
 
+## Where can I find the report?
+
+You can find the report [here](./report/).
+
 ## Setup locally with Docker Compose
 
 You will obviously need Docker and Docker Compose to run the project with

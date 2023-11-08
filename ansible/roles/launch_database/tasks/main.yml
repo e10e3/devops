@@ -3,6 +3,7 @@
   community.docker.docker_container:
     name: "{{ database.container_name }}"
     image: e10e3/ops-database
+    pull: true
     volumes:
       - db_storage:/var/lib/postgresql/data
     networks:

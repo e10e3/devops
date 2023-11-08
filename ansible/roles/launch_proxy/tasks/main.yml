@@ -3,6 +3,7 @@
   community.docker.docker_container:
     name: "{{ proxy.container_name }}"
     image: e10e3/ops-proxy
+    pull: true
     networks:
       - name: app_network
     ports:

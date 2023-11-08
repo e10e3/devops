@@ -11,3 +11,4 @@
     env:
       BACKEND_CONTAINER_NAME: "{{ backend.container_name }}"
       FRONTEND_CONTAINER_NAME: "{{ frontend.container_name }}"
+      HOSTNAME: "{{ proxy.hostname }}"

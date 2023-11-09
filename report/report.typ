@@ -53,17 +53,17 @@ block(fill: luma(235),
 }
 
 #let note(content) = {
- text(fill: red, [#text(font: "Unifont", size: 20pt, [⚠]) NOTE: ] + content)
-	}
+ // text(fill: red, [#text(font: "Unifont", size: 20pt, [⚠]) NOTE: ] + content)
+}
 
-	#let title1_is_displayed() = {
+#let title1_is_displayed() = {
  locate(loc => {
 	 let heading_level = counter(heading).at(loc).at(0)
 	 if heading_level == 0 {
 	 }else [
 		 #heading_level
 	 ] + " "
-})
+	})
 }
 
 // Reset the question counter for each top-level heading
@@ -1570,9 +1570,9 @@ redirections.
 </VirtualHost>
 	```,
 	caption: [How the reverse proxy is configured in the HTTP server]
-	)
+)
 
-	The redirection is made as so:
+The redirection is made as so:
 - the traffic looking for `/api/*` will go to the back-end,
 - the traffic looking for all other paths will go to the front-end.
 
@@ -1604,8 +1604,8 @@ still used), but all other variables are commands on what to set.].
 == Changing environment variables at build time
 
 Vue is configured at build time. It can be parametered with variables,
- but it only uses variables from a defined set of files, depending on
- what part of the lifecycle is wanted.
+but it only uses variables from a defined set of files, depending on
+what part of the lifecycle is wanted.
 
 Thankfully these variables can be overridden with environment
 variables from the host. But remember: it needs to happen at build

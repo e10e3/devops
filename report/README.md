@@ -11,5 +11,5 @@ The sections are:
 1. Setting up Docker
 2. Using GitHub Actions
 3. Deplaying with Ansible
-4. A new front-end
+4. [A new front-end](./4-front-end.md)
 5. [Conclusion](./5-conclusion.md)

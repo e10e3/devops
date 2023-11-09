@@ -776,6 +776,32 @@ total control on their environment.
  in lightweight Docker containers. In the context of Java apps, they
  execute JUnit tests.]
 
+== Yamllint is your friend
+
+From now on, we'll use a tonne of YAML files. But the tools they
+configure will fail if the file are improperly formatted.
+
+_Yamllint_ is here to help! Running it on a file will give you a list
+of all malformed items, like wrong indentation.
+
+```yaml
+# perhaps.yaml
+key: on
+enum:
+  - name: Test
+     kind: None
+  - name: Other
+```
+```
+$ yamllint perhaps.yaml
+perhaps.yaml
+  1:1       warning  missing document start "---"  (document-start)
+  1:6       warning  truthy value should be one of [false, true]  (truthy)
+  4:10      error    syntax error: mapping values are not allowed here (syntax)
+```
+
+YAML awaits you!
+
 == Creating a workflow
 
 Part of the DevOps philosophy is CI --- continuous

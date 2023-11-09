@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" viewBox="0 0 1105.4 390.13" xmlns="http://www.w3.org/2000/svg">
+	<defs>
+		<marker id="a" overflow="visible" markerHeight="11.226426" markerWidth="10" orient="auto-start-reverse" preserveAspectRatio="xMidYMid" viewBox="0 0 5.8874262 6.6094758">
+			<path transform="scale(.5)" d="m6 0c-3 1-7 3-9 5 0 0 0-4 2-5-2-1-2-5-2-5 2 2 6 4 9 5z" fill="context-stroke" fill-rule="evenodd" stroke="context-stroke" stroke-width="1pt"/>
+		</marker>
+	</defs>
+	<g transform="translate(-44.684 -148.97)" stroke-linecap="round">
+		<g>
+			<g transform="translate(-.052019 8.6044)" stroke-width="1.5">
+				<rect x="44.736" y="232.09" width="226.77" height="226.77" fill="none" stop-color="#000000" style="paint-order:stroke markers fill"/>
+				<g stroke-linecap="round" stroke-width="1.5">
+					<g stroke-linecap="round" stroke-width="1.5">
+						<rect x="57.335" y="283.46" width="201.57" height="103.76" fill="none" stop-color="#000000" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="3.8662" stroke-width="1.5" style="paint-order:stroke markers fill"/>
+						<g transform="translate(2)" fill="none" stroke="#000" stroke-linejoin="round" stroke-miterlimit="3.8662">
+							<circle cx="247.02" cy="278.64" r="1.5805" stop-color="#000000" style="paint-order:stroke markers fill"/>
+							<circle cx="251.56" cy="278.76" r="1.5805" stop-color="#000000" style="paint-order:stroke markers fill"/>
+						</g>
+						<rect x="57.335" y="273.84" width="201.57" height="9.6258" fill="none" stop-color="#000000" stroke="#000" stroke-linejoin="round" stroke-miterlimit="3.8662" style="paint-order:stroke markers fill"/>
+						<g fill="none" stroke="#000" stroke-linejoin="round" stroke-miterlimit="3.8662">
+							<circle cx="158.12" cy="335.34" r="31.441" stop-color="#000000" style="paint-order:stroke markers fill"/>
+							<ellipse cx="158.12" cy="335.34" rx="25.57" ry="31.441" stop-color="#000000" style="paint-order:stroke markers fill"/>
+							<ellipse cx="158.12" cy="335.34" rx="13.691" ry="31.441" stop-color="#000000" style="paint-order:stroke markers fill"/>
+							<path d="m132.55 317.05 51.12-.0285" stop-color="#000000" style="paint-order:stroke markers fill"/>
+							<path d="m126.68 335.34h62.881" stop-color="#000000" style="paint-order:stroke markers fill"/>
+							<path d="m132.2 353.58 51.517.029" stop-color="#000000" style="paint-order:stroke markers fill"/>
+						</g>
+						<text x="118.28466" y="416.88763" font-family="Inter" font-size="20px" style="line-height:1.25" xml:space="preserve"><tspan x="118.28466" y="416.88763" font-family="Inter" font-size="20px" font-weight="500" stroke-linecap="round" stroke-width="1.5">browser</tspan></text>
+					</g>
+					<rect x="150.4" y="387.22" width="15.118" height="15.118" fill="none" stop-color="#000000" style="paint-order:stroke markers fill"/>
+				</g>
+			</g>
+			<g transform="translate(-16.601 .26584)" stroke-width="1.5">
+				<rect x="932.25" y="158.27" width="207.87" height="207.87" fill="none" stop-color="#000000" style="paint-order:stroke markers fill"/>
+				<g transform="matrix(.59092 0 0 .59092 574.32 87.947)" stroke-linecap="round" stroke-width="2.5384">
+					<g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="3.8662" stroke-width="2.5384">
+						<ellipse cx="778.22" cy="192.99" rx="73.058" ry="19.401" stop-color="#000000" style="paint-order:stroke markers fill"/>
+						<path d="m851.28 240.99a73.058 22.641 0 01-73.058 22.641 73.058 22.641 0 01-73.058-22.641" stop-color="#000000" style="paint-order:stroke markers fill"/>
+						<path d="m851.28 288.99a73.058 22.641 0 01-73.058 22.641 73.058 22.641 0 01-73.058-22.641" stop-color="#000000" style="paint-order:stroke markers fill"/>
+						<path d="m851.28 336.99a73.058 22.641 0 01-73.058 22.641 73.058 22.641 0 01-73.058-22.641" stop-color="#000000" style="paint-order:stroke markers fill"/>
+					</g>
+					<g stroke-linecap="round" stroke-width="2.5384">
+						<path d="m705.16 192.99v144" fill="#f0f" stop-color="#000000" stroke="#000" stroke-linejoin="round" stroke-miterlimit="3.8662" style="paint-order:stroke markers fill"/>
+						<path d="m851.28 192.99v144" fill="#f0f" stop-color="#000000" stroke="#000" stroke-linejoin="round" stroke-miterlimit="3.8662" style="paint-order:stroke markers fill"/>
+						<text x="685.25519" y="410.16693" font-family="Inter" font-size="33.846px" style="line-height:1.25" xml:space="preserve"><tspan x="685.25519" y="410.16693" font-family="Inter" font-size="33.846px" font-weight="500" stroke-linecap="round" stroke-width="2.5384">postgreSQL</tspan></text>
+					</g>
+					<rect x="768.8" y="359.63" width="25.584" height="25.584" fill="none" stop-color="#000000" style="paint-order:stroke markers fill"/>
+				</g>
+			</g>
+			<g transform="translate(.052007 -8.6044)" stroke-width="1.5">
+				<rect x="358.48" y="249.64" width="207.87" height="207.87" fill="none" stop-color="#000000" style="paint-order:stroke markers fill"/>
+				<g transform="matrix(.67808 0 0 .67808 158.97 249.64)" stroke-linecap="round" stroke-width="2.2121">
+					<g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="3.8662" stroke-width="2.2121">
+						<rect x="353.01" y="132.38" width="188.98" height="37.795" stop-color="#000000" style="paint-order:stroke markers fill"/>
+						<path d="m390.33 91.725-37.32 40.654h188.98l-37.322-40.654z" stop-color="#000000" style="paint-order:stroke markers fill"/>
+						<circle cx="512.23" cy="151.28" r="7.4158" stop-color="#000000" style="paint-order:stroke markers fill"/>
+						<path d="m368.31 143.86.0562 14.832" stop-color="#000000" style="paint-order:stroke markers fill"/>
+						<path d="m376.31 143.86.0562 14.832" stop-color="#000000" style="paint-order:stroke markers fill"/>
+						<path d="m384.31 143.86.0562 14.832" stop-color="#000000" style="paint-order:stroke markers fill"/>
+					</g>
+					<text x="407.34628" y="208.79913" font-family="Inter" font-size="29.495px" stroke-linecap="round" stroke-width="2.2121" style="line-height:1.25" xml:space="preserve"><tspan x="407.34628" y="208.79913" font-family="Inter" font-size="29.495px" font-weight="500" stroke-linecap="round" stroke-width="2.2121">proxy</tspan></text>
+					<rect x="436.35" y="170.17" width="22.295" height="22.295" fill="none" stop-color="#000000" style="paint-order:stroke markers fill"/>
+				</g>
+			</g>
+			<g transform="translate(-.079542 -11.487)" stroke-width="1.5">
+				<rect x="635.62" y="332.89" width="207.87" height="207.87" fill="none" stop-color="#000000" style="paint-order:stroke markers fill"/>
+				<g transform="matrix(.67808 0 0 .67808 436.12 333.12)" stroke-linecap="round" stroke-width="2.2121">
+					<g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="3.8662" stroke-width="2.2121">
+						<rect x="353.01" y="132.38" width="188.98" height="37.795" stop-color="#000000" style="paint-order:stroke markers fill"/>
+						<path d="m390.33 91.725-37.32 40.654h188.98l-37.322-40.654z" stop-color="#000000" style="paint-order:stroke markers fill"/>
+						<circle cx="512.23" cy="151.28" r="7.4158" stop-color="#000000" style="paint-order:stroke markers fill"/>
+						<path d="m368.31 143.86.0562 14.832" stop-color="#000000" style="paint-order:stroke markers fill"/>
+						<path d="m376.31 143.86.0562 14.832" stop-color="#000000" style="paint-order:stroke markers fill"/>
+						<path d="m384.31 143.86.0562 14.832" stop-color="#000000" style="paint-order:stroke markers fill"/>
+					</g>
+					<text x="381.09833" y="214.92645" font-family="Inter" font-size="29.495px" stroke-linecap="round" stroke-width="2.2121" style="line-height:1.25" xml:space="preserve"><tspan x="381.09833" y="214.92645" font-family="Inter" font-size="29.495px" font-weight="500" stroke-linecap="round" stroke-width="2.2121">front-end</tspan></text>
+					<rect x="436.35" y="170.17" width="22.295" height="22.295" fill="none" stop-color="#000000" style="paint-order:stroke markers fill"/>
+				</g>
+				<rect x="635.62" y="169.53" width="207.87" height="207.87" fill="none" stop-color="#000000" style="paint-order:stroke markers fill"/>
+				<g transform="matrix(.67808 0 0 .67808 436.12 170.09)" stroke-linecap="round" stroke-width="2.2121">
+					<g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="3.8662" stroke-width="2.2121">
+						<rect x="353.01" y="132.38" width="188.98" height="37.795" stop-color="#000000" style="paint-order:stroke markers fill"/>
+						<path d="m390.33 91.725-37.32 40.654h188.98l-37.322-40.654z" stop-color="#000000" style="paint-order:stroke markers fill"/>
+						<circle cx="512.23" cy="151.28" r="7.4158" stop-color="#000000" style="paint-order:stroke markers fill"/>
+						<path d="m368.31 143.86.0562 14.832" stop-color="#000000" style="paint-order:stroke markers fill"/>
+						<path d="m376.31 143.86.0562 14.832" stop-color="#000000" style="paint-order:stroke markers fill"/>
+						<path d="m384.31 143.86.0562 14.832" stop-color="#000000" style="paint-order:stroke markers fill"/>
+					</g>
+					<text x="380.29709" y="213.92094" font-family="Inter" font-size="29.495px" stroke-linecap="round" stroke-width="2.2121" style="line-height:1.25" xml:space="preserve"><tspan x="380.29709" y="213.92094" font-family="Inter" font-size="29.495px" font-weight="500" stroke-linecap="round" stroke-width="2.2121">back-end</tspan></text>
+					<rect x="436.35" y="170.17" width="22.295" height="22.295" fill="none" stop-color="#000000" style="paint-order:stroke markers fill"/>
+				</g>
+			</g>
+		</g>
+		<g fill="none" stroke="#000">
+			<g stroke-width="1.5">
+				<path d="m271.51 345.47 98.233-.12778" marker-end="url(#a)"/>
+				<path d="m566.4 344.98c8.23-8.23 56.753-75.851 69.136-83" marker-end="url(#a)"/>
+				<path d="m566.4 344.98c9.786 9.786 56.563 73.103 69.135 80.362" marker-end="url(#a)"/>
+				<path d="m843.41 261.98 86.566-.79381" marker-end="url(#a)"/>
+			</g>
+			<path d="m739.47 365.91-3e-4-44.513" marker-end="url(#a)" stroke-dasharray="11.99999994, 5.99999997" stroke-width="1.5"/>
+		</g>
+		<text x="584.71069" y="243.95862" font-family="Inter" font-size="24px" style="line-height:1.25" xml:space="preserve"><tspan x="584.71069" y="243.95862" font-family="Inconsolata" font-size="24px" font-weight="500" stroke-linecap="round">/api/</tspan></text>
+		<text x="604.23468" y="456.36472" font-family="Inter" font-size="24px" style="line-height:1.25" xml:space="preserve"><tspan x="604.23468" y="456.36472" font-family="Inconsolata" font-size="24px" font-weight="500" stroke-linecap="round">/</tspan></text>
+	</g>
+</svg>

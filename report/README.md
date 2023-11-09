@@ -12,4 +12,4 @@ The sections are:
 2. Using GitHub Actions
 3. Deplaying with Ansible
 4. A new front-end
-5. Conclusion
+5. [Conclusion](./5-conclusion.md)

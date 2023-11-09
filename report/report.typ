@@ -944,6 +944,64 @@ key: |
   string!
 ```
 
+== Fixing SonarCloud's alerts
+
+SonarCloud raises two types of security warnings on the default
+back-end code:
+
+- The first ones are for potential unauthorised cross-origin access,
+ because the annotation `@CrossOrigin` was added to the controllers.
+
+- The second one warns about using database-linked data types as the
+  input from endpoints. This could be exploited to overload the
+  database.
+
+In addition, but not blocking at first, the code coverage was reported
+to be around 50%, where SonarCloud requires it to be above 80% for new
+code.
+
+Fixing the first set of warnings was easy: removing the incriminated
+lines was enough. Since this is a simple case with only one route
+(coming from the proxy), nothing important goes missing with this
+deletion.
+
+The second one is more involved. It is necessary to create a _data
+transfer object_ (DTO) that will be the API's input, and will then be
+transformed into the regular object. For this kind of object that hold
+no logic, Java 14's records are perfect.
+
+The DTO for the Student class is:
+
+```java
+public record StudentDto(
+        String firstname,
+        String lastname,
+        Long departmentId) {
+}
+```
+
+Because a new object is introduced, the function signatures change,
+conversion needs to be handled, new service routines are added, the
+tests must be adapted, etc. A little bit everywhere is needed to
+secure the API.
+
+And then, once the security is taken care of, SonarCloud complains
+about the tests. "Clean code" fails. Indeed: it detects only 20% of
+new code coverage. But the locally-run tests indicate 90%!
+
+This is because the test coverage is not updated, so SonarCloud cannot
+see it. The tool used for this is called
+#link("https://www.jacoco.org/jacoco/")[JaCoCo]. The `jacoco:report`
+goal needs to be added when the tests are run, and the option
+`-Pcoverage` should be given to Sonar when called through Maven. After
+this all, the coverage is updated and the pipeline passes.
+
+Because I was looking at the tests, I used the opportunity to add some
+missing tests for the original code, bringing the coverage to
+97%#footnote[The coverage with these tools cannot be 100%, because
+some of the code cannot or has no point in begin tested
+individually.].
+
 == Split pipelines
 
 Our workflow work fine, but we want to refactor it in two separate

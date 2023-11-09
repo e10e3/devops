@@ -4,7 +4,7 @@
 
 ## Where can I find the report?
 
-You can find the report [here](./report/).
+You can find the report [here](./report/). The [PDF version](./report/report.pdf) is the preferred format.
 
 ## Setup locally with Docker Compose
 

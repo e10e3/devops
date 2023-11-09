@@ -206,7 +206,8 @@ This means the files from the container located in the directory
 `database/persistence`.
 
 With the data being kept on the host’s disk, it stays between
-executions, even if the container is destroyed. The data created by Postgres looks like:
+executions, even if the container is destroyed. The data created by
+Postgres looks like:
 
 ```
 $ sudo ls database/persistence/
@@ -456,7 +457,7 @@ In `jdbc:postgresql://database-layer:5432/${POSTGRES_DB}`,
 `database-layer` is the name of the container running the database. In
 a network, Docker automatically fills in the hostnames.
 
-Running the application a container from it and supplying the appropriate
+Running a container with the application and supplying the appropriate
 variables looks now like:
 
 ```sh
@@ -556,8 +557,8 @@ sudo docker cp http-layer:/usr/local/apache2/conf/httpd.conf http/httpd.conf
 
 The file is quite long, so not shown here.
 
-Here are the changes that were made to configuration to turn it into a
-reverse proxy:
+Here are the changes that were made to the configuration to turn it
+into a reverse proxy:
 
 ```diff
 --- http/httpd.conf
@@ -614,7 +615,7 @@ the back-end.
 Executing the Docker commands works well, but it is a bit
 tedious. Fortunately, Compose is here for us.
 
-With compose, we list all the properties we want our containers to
+With Compose, we list all the properties we want our containers to
 have, and they are automagically provisioned. Once we don't need them,
 we ask Compose to stop them, and they are removed.
 
@@ -680,7 +681,6 @@ volumes:
 	containers. This is done with the `networks` key. The actual name of
 	the container does not really matter since we only have one and it
 	is name only used in the file.
-
 
 	Similarly, it is better to declare a volume for the database
 	storage, allowing to restore the state at startup and not have to

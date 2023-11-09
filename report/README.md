@@ -8,7 +8,7 @@ The PDF's source is also given for reproducibility, at [report.typ](./report.typ
 
 The sections are:
 
-1. Setting up Docker
+1. [Setting up Docker](./1-docker.md)
 2. Using GitHub Actions
 3. Deplaying with Ansible
 4. [A new front-end](./4-front-end.md)

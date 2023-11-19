@@ -100,7 +100,7 @@ jobs:
         run: mvn -B clean verify --file backend/pom.xml
 ```
 
-Notes: _checkout_ was updated to v4 because the previous version were
+Note: _checkout_ was updated to v4 because the previous version were
 deprecated. The JDK version installed is version 17 (the
 tried-and-true LTS version of the last few years), from the Eclipse
 _temurin_ distribution.
@@ -299,7 +299,7 @@ This is created by splitting the workflows in three:
   is pushed on _main_ or _develop_,
 
 - The last one build and pushes the Docker images when a commit is
-  made on _main_ or a tag is pushed. Before building it runs the tests
+  made on _main_ or a tag is pushed. Before building, it runs the tests
   through the reusable workflow.
 
 The calling jobs use the line `secrets: inherit` to transmit their
@@ -320,8 +320,7 @@ strategy:
         dockerfile: ./http
 ```
 
-The image and Dockerfile are respectively accessed with `${{
-matrix.image }}` and `${{ matrix.dockerfile }}`.
+The image and Dockerfile are respectively accessed with `${{ matrix.image }}` and `${{ matrix.dockerfile }}`.
 
 And indeed, with the workflows complete, pushing a
 [semantic versioning](https://semver.org/) tag like `v1.1.0` pushes

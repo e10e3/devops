@@ -749,8 +749,9 @@ uploaded in a Git repository at https://github.com/e10e3/devops.
 Let's focus on the back-end, arguably the most brittle part of our
 system for now: the database and the HTTP server are more complex, but
 we only configured them and suppose they are both more mature and more
-tested. The Java app --- while we didn't write it ourselves --- is quite new and it was created from the ground
-up (albeit using frameworks that help a bit).
+tested. The Java app --- while we didn't write it ourselves --- is
+quite new and it was created from the ground up (albeit using
+frameworks that help a bit).
 
 Thankfully, the back-end has some tests written to ensure its
 functionality. To run them all, we need to build the app. This is
@@ -771,10 +772,13 @@ Some of the tests are more encompassing (they are called _integration
 tests_) and run in specialised Docker containers in order to have
 total control on their environment.
 
-#question[What are testcontainers?][_Testcontainers_ is a testing
- library (https://testcontainers.org) that run tests on the codebase
- in lightweight Docker containers. In the context of Java apps, they
- execute JUnit tests.]
+#question[What are testcontainers?][
+
+	_Testcontainers_ is a testing library (https://testcontainers.org)
+	that run tests on the codebase in lightweight Docker
+	containers. In the context of Java apps, they execute JUnit tests.
+
+]
 
 == Yamllint is your friend
 
@@ -841,7 +845,7 @@ jobs:
         run: mvn -B clean verify --file backend/pom.xml
 ```
 
-Notes: _checkout_ was updated to v4 because the previous version were
+Note: _checkout_ was updated to v4 because the previous version were
 deprecated. The JDK version installed is version 17 (the
 tried-and-true LTS version of the last few years), from the Eclipse
 _temurin_ distribution.
@@ -1039,7 +1043,7 @@ This is created by splitting the workflows in three:
   is pushed on _main_ or _develop_,
 
 - The last one build and pushes the Docker images when a commit is
-  made on _main_ or a tag is pushed. Before building it runs the tests
+  made on _main_ or a tag is pushed. Before building, it runs the tests
   through the reusable workflow.
 
 The calling jobs use the line `secrets: inherit` to transmit their
@@ -1060,8 +1064,11 @@ strategy:
         dockerfile: ./http
 ```
 
-The image and Dockerfile are respectively accessed with `${{
-matrix.image }}` and `${{ matrix.dockerfile }}`.
+The image and Dockerfile are respectively accessed with `${{ matrix.image }}`
+and `${{ matrix.dockerfile }}`.
+
+The images' tag are set to the correct version using the
+`docker/metadata-action` action.
 
 And indeed, with the workflows complete, pushing a
 #link("https://semver.org/")[semantic versioning] tag like `v1.1.0`
@@ -1426,7 +1433,7 @@ from images and parameter them, `community.docker.docker_network` can
 create networks and `community.docker.docker_volume` will create
 storage volumes.
 
-#question[Document your docker_container tasks configuration.][
+#question[Document your `docker_container` tasks configuration.][
 
 	A handful of options of `docker_container` are used to configure
 	the containers:

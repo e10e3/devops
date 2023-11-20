@@ -35,7 +35,7 @@ The redirection is made as so:
 
 The following architecture diagram shows the relation between the servers:
 
-![The app's architecture](assets/architecture.svg)
+![The app's architecture](assets/architecture.png)
 
 Since the front-end makes itself use of the API, it needs to make
 calls to `/api/`, routing though the reverse proxy.

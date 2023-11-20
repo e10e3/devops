@@ -52,10 +52,6 @@ block(fill: luma(235),
 })
 }
 
-#let note(content) = {
- // text(fill: red, [#text(font: "Unifont", size: 20pt, [⚠]) NOTE: ] + content)
-}
-
 #let title1_is_displayed() = {
  locate(loc => {
 	 let heading_level = counter(heading).at(loc).at(0)
@@ -154,8 +150,6 @@ sudo docker run -d \
 
 The database is currently empty --- after all, it was just created.
 
-#note[Add a screenshot of Adminer?]
-
 To initialise the database, we create the files `01-CreateScheme.sql`
 and `02-InsertData.sql`. They are copied in the
 `/docker-entrypoint-initdb.d` directory of the container when it is
@@ -181,7 +175,7 @@ CREATE TABLE public.students
 	caption: [The `01-CreateScheme.sql` file.],
 )
 
-	The necessary instructions are added to the Dockerfile:
+The necessary instructions are added to the Dockerfile:
 
 ```dockerfile
 FROM postgres:14.1-alpine
@@ -195,6 +189,15 @@ ENV POSTGRES_DB=db \
 ```
 
 And the image is rebuilt like before.
+
+The data is indeed inserted in the database, as seen in
+@filled-database.
+
+#figure(
+ image("assets/adminer-database-filled.png", width: 80%),
+	caption: [The database with the two tables added, in Adminer.],
+	placement: auto
+)<filled-database>
 
 Lastly, we add a _bind volume_ to the container for persistence:
 ```sh
@@ -1026,6 +1029,11 @@ In the end, the behaviour is as so:
 If located on main, develop or a pull request → run the tests\
 If located on main and previous steps is successful  → push the images
 
+#figure(
+  image("assets/split-workflows.png"),
+  caption: [The split workflows' behaviour]
+)
+
 == Automatic image version
 
 Pushing the latest version of an image is cool, but isn't it _cooler_
@@ -1075,6 +1083,11 @@ And indeed, with the workflows complete, pushing a
 pushes
 #link("https://hub.docker.com/repository/docker/e10e3/ops-database/tags")[an
 image with the same tag] on Docker Hub.
+
+#figure(
+  image("assets/auto-version.png"),
+  caption: [The two main workflows, and a reusable one (in yellow)]
+)
 
 = Ansible
 
@@ -1586,8 +1599,8 @@ The redirection is made as so:
 The following architecture diagram shows the relation between the servers:
 
 #figure(
- image("assets/architecture.svg", width: 80%),
-	caption: [The app's architecture]
+  image("assets/architecture.png"),
+  caption: [The app's architecture]
 )
 
 Since the front-end makes itself use of the API, it needs to make

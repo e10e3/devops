@@ -102,6 +102,10 @@ ENV POSTGRES_DB=db \
 
 And the image is rebuilt like before.
 
+The data is indeed inserted in the database, as seen in Figure 1:
+
+![The database with the two tables added, in Adminer.](assets/adminer-database-filled.png)
+
 Lastly, we add a _bind volume_ to the container for persistence:
 ```sh
 sudo docker run -p 5000:5432 -v ./database/persistence:/var/lib/postgresql/data --name database-layer --network app-network me/tp-database

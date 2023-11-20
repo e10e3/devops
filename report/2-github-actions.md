@@ -282,6 +282,8 @@ In the end, the behaviour is as so:
 If located on main, develop or a pull request → run the tests\
 If located on main and previous steps is successful  → push the images
 
+![The split workflows' behaviour](assets/split-workflows.png)
+
 ## Automatic image version
 
 Pushing the latest version of an image is cool, but isn't it _cooler_
@@ -326,3 +328,5 @@ And indeed, with the workflows complete, pushing a
 [semantic versioning](https://semver.org/) tag like `v1.1.0` pushes
 [an image with the same tag](https://hub.docker.com/repository/docker/e10e3/ops-database/tags)
 on Docker Hub.
+
+![The two main workflows, and a reusable one (in yellow)](assets/auto-version.png)
